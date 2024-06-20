@@ -1,0 +1,50 @@
+body {
+    background-color: rgb(101, 115, 117);
+}
+
+h1 {
+    text-align: center;
+    color: rgb(158, 71, 9);
+    background-color: rgb(24, 27, 9);
+    font-size: 400%;
+}
+
+a {
+    color: rgb(21, 63, 13);
+    text-decoration: none;
+    font-size: 150%;
+}
+
+a:hover {
+    color: rgb(240, 225, 19) ;
+}
+
+h2 {
+    text-align: center;
+    font-size: 300%;
+}
+
+table {
+    background-color: rgb(187, 182, 173);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+th{
+    text-align: center;
+    font-size: 170%;
+}
+
+td {
+    text-align: center;
+    font-size: 150%;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: rgb(24, 27, 9);
+    color: rgb(158, 71, 9);
+}
+
+
+    

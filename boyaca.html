@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>F_Boyaca</title>
+        <link  rel="stylesheet" href="bycstyles.css" />
+    </head>
+    <body>
+       <header><a href="index.html">Inicio</a> <h1>FAUNA</h1>
+        
+       </header>
+        <!--Aqui se crea una tabla para el json-->
+<section>
+    <h2>Boyacá</h2>
+    <table id="tabla" border="1" style="width:100%; text-align: left;">
+        <thead>
+            <tr>
+                <th>Nombre Común</th>
+                <th>Nombre Científico</th>
+                <th>Hábitat</th>
+                <th>Latitud</th>
+                <th>Longitud</th>
+                <th>Altitud</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody id="especies_body">
+        </tbody>
+    </table>
+</section>
+
+    
+    <!--En esta sección se hace el manejo del archivo json para implementarlo en la tabla anterior-->
+
+    <script>
+        const requestURL = "ejemplodic5b.json";
+        const request = new XMLHttpRequest();
+        request.open("GET", requestURL);
+        request.responseType = "json";
+        request.send();
+        request.onload = function () {
+            const especies = request.response;
+            const tableBody = document.getElementById("especies_body");
+
+            especies.forEach(especie => {
+                const row = document.createElement("tr");
+
+                const nombreCoCell = document.createElement("td");
+                nombreCoCell.textContent = especie.nombre_co;
+                row.appendChild(nombreCoCell);
+
+                const nombreCiCell = document.createElement("td");
+                nombreCiCell.textContent = especie.nombre_ci;
+                row.appendChild(nombreCiCell);
+
+                const habitatCell = document.createElement("td");
+                habitatCell.textContent = especie.habitat;
+                row.appendChild(habitatCell);
+
+                const latitudCell = document.createElement("td");
+                latitudCell.textContent = especie.latitud;
+                row.appendChild(latitudCell);
+
+                const longitudCell = document.createElement("td");
+                longitudCell.textContent = especie.longitud;
+                row.appendChild(longitudCell);
+
+                const altitudCell = document.createElement("td");
+                altitudCell.textContent = especie.altitud;
+                row.appendChild(altitudCell);
+
+                const imagenCell = document.createElement("td");
+                const imagen = document.createElement("img");
+                imagen.src = especie.imagen;
+                imagen.alt = especie.nombre_co;
+                imagen.width = 250;
+                imagen.height = 150;
+                imagenCell.appendChild(imagen);
+                row.appendChild(imagenCell);
+
+                tableBody.appendChild(row);
+            });
+        };
+    </script>
+    
+</section>
+<footer>
+    <p>&copy; Sergio Ramírez 2024 <br>
+      sergio.ramirez.talentotech@usa.edu.co</p>
+  </footer>
+    </body>
+</html>
